@@ -1,5 +1,4 @@
 #! /bin/bash
-
 current_location=$PWD
 wp_string='127.0.0.1 wordpresssite.com'
 
@@ -12,7 +11,7 @@ sudo mkdir /var/www/wordpress
 sudo cp wordpress.conf /etc/apache2/sites-available/
 
 #Enable Apache2 Server
-cd /etc/apache2/sites-available/
+cd /etc/apache2/sites-available/  
 sudo a2ensite wordpress.conf
 cd $current_location
 sudo systemctl reload apache2
@@ -49,7 +48,7 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp core download --locale=en_US
-wp core install --url=wordpresssite.com --title=wordpresssite.com --admin_user=admin --admin_password=wp1234 --admin_>
+wp core install --url=wordpresssite.com --title=wordpresssite.com --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
 sleep 10
 xdg-open http://wordpresssite.com 2>/dev/null
 
