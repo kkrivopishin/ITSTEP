@@ -54,13 +54,13 @@ wp core install --url=wordpresssite.net --title=wordpresssite.net --admin_user=a
 sudo service apache2 stop
 sudo apt-get install nginx -y
 sudo sed -i 's/80/8080/' /etc/apache2/ports.conf
-sudo sed -i 's/80/8080/' /etc/apache2/sites-available/wordpresssite.conf
+sudo sed -i 's/80/8080/' /etc/apache2/sites-available/wordpress.conf
 sudo service apache2 start
 sudo service nginx stop
 cd ~
 sudo echo "server {
 listen 80;
-server_name wordpresssite.com;
+server_name wordpresssite.net;
 proxy_set_header Host \$http_host;
 proxy_set_header X-Real-IP \$remote_addr;
 proxy_set_header X-forwarded-For \$remote_addr;
