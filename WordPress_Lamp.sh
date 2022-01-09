@@ -49,8 +49,6 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp core download --locale=en_US
 wp core install --url=wordpresssite.com --title=wordpresssite.com --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
-sleep 10
-xdg-open http://wordpresssite.com 2>/dev/null
 
 # Installation and setting Nginx
 sudo service apache2 stop
@@ -74,3 +72,6 @@ proxy_pass http://127.0.0.1:8080/;
 sudo cp wordpresssite /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/wordpresssite /etc/nginx/sites-enabled/
 sudo service nginx start
+
+sleep 10
+xdg-open http://wordpresssite.com 2>/dev/null
