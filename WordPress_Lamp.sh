@@ -49,5 +49,29 @@ chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp core download --locale=en_US
 wp core install --url=wordpresssite.net --title=wordpresssite.net --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
+
+#Installation and setting Nginx
+sudo service apache2 stop
+sudo apt-get install nginx -y
+sudo sed -i 's/80/8080/' /etc/apache2/ports.conf
+sudo sed -i 's/80/8080/' /etc/apache2/sites-available/wordpresssite.conf
+sudo service apache2 start
+sudo service nginx stop
+cd ~
+sudo echo "server {
+listen 80;
+server_name wordpresssite.com;
+proxy_set_header Host \$http_host;
+proxy_set_header X-Real-IP \$remote_addr;
+proxy_set_header X-forwarded-For \$remote_addr;
+
+location / {
+proxy_pass http://127.0.0.1:8080/;
+}
+}" >> wordpresssite
+sudo cp wordpresssite /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/wordpresssite /etc/nginx/sites-enabled/
+sudo service nginx start
+
 sleep 10
 xdg-open http://wordpresssite.net 2>/dev/null
