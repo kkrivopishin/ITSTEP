@@ -1,6 +1,6 @@
 #! /bin/bash
 current_location=$PWD
-wp_string='127.0.0.1 wordpresssite.com'
+wp_string='127.0.0.1 wordpresssite.net'
 
 #Installation Apache2 Server
 sudo apt-get update && apt-get upgrade -y
@@ -17,7 +17,7 @@ cd $current_location
 sudo systemctl reload apache2
 
 #Added host to /etc/hosts
-sudo sed -i '/127.0.0.1 wordpresssite.com/d' /etc/hosts
+sudo sed -i '/127.0.0.1 wordpresssite.net/d' /etc/hosts
 echo $wp_string | sudo tee -a /etc/hosts
 
 #Installation Mariadb
@@ -48,9 +48,9 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp core download --locale=en_US
-wp core install --url=wordpresssite.com --title=wordpresssite.com --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
+wp core install --url=wordpresssite.net --title=wordpresssite.net --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
 
-# Installation and setting Nginx
+#Installation and setting Nginx
 sudo service apache2 stop
 sudo apt-get install nginx -y
 sudo sed -i 's/80/8080/' /etc/apache2/ports.conf
@@ -74,4 +74,4 @@ sudo ln -s /etc/nginx/sites-available/wordpresssite /etc/nginx/sites-enabled/
 sudo service nginx start
 
 sleep 10
-xdg-open http://wordpresssite.com 2>/dev/null
+xdg-open http://wordpresssite.net 2>/dev/null
