@@ -1,6 +1,6 @@
 #! /bin/bash
 current_location=$PWD
-wp_string='127.0.0.1 wordpresssite.com'
+wp_string='127.0.0.1 wordpresssite.net'
 
 #Installation Apache2 Server
 sudo apt-get update && apt-get upgrade -y
@@ -17,7 +17,7 @@ cd $current_location
 sudo systemctl reload apache2
 
 #Added host to /etc/hosts
-sudo sed -i '/127.0.0.1 wordpresssite.com/d' /etc/hosts
+sudo sed -i '/127.0.0.1 wordpresssite.net/d' /etc/hosts
 echo $wp_string | sudo tee -a /etc/hosts
 
 #Installation Mariadb
@@ -48,6 +48,6 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 sudo mv wp-cli.phar /usr/local/bin/wp
 wp core download --locale=en_US
-wp core install --url=wordpresssite.com --title=wordpresssite.com --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
+wp core install --url=wordpresssite.net --title=wordpresssite.net --admin_user=admin --admin_password=wp1234 --admin_email=info@example.com
 sleep 10
-xdg-open http://wordpresssite.com 2>/dev/null
+xdg-open http://wordpresssite.net 2>/dev/null
