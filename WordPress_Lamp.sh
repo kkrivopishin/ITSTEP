@@ -54,7 +54,7 @@ wp core install --url=wordpresssite.net --title=wordpresssite.net --admin_user=a
 sudo service apache2 stop
 sudo apt-get install nginx -y
 sudo sed -i 's/80/8080/' /etc/apache2/ports.conf
-sudo sed -i 's/80/8080/' /etc/apache2/sites-available/wordpresssite.conf
+sudo sed -i 's/80/8080/' /etc/apache2/sites-available/wordpress.conf
 sudo service apache2 start
 sudo service nginx stop
 cd ~
