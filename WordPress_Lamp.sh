@@ -60,7 +60,7 @@ sudo service nginx stop
 cd ~
 sudo echo "server {
 listen 80;
-server_name wordpresssite.com;
+server_name wordpresssite.net;
 proxy_set_header Host \$http_host;
 proxy_set_header X-Real-IP \$remote_addr;
 proxy_set_header X-forwarded-For \$remote_addr;
