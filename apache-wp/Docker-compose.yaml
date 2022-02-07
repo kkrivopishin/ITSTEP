@@ -1,6 +1,6 @@
 services:
   apache-wp:
-    image: apache-wp
+    image: apache-wp:1.0.0
     container_name: apache-wp
     depends_on:
       - mysql
