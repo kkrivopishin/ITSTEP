@@ -1,0 +1,19 @@
+services:
+  apache-wp:
+    image: apache-wp2
+    container_name: apache-wp2
+    depends_on:
+      - mysql
+    ports:
+      - 80:80
+
+  mysql2:
+    image: mysql:5.7
+    container_name: mysql2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_HOST: localhost
+      MYSQL_DATABASE: wordpressdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wp1234
