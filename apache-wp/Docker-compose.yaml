@@ -1,15 +1,16 @@
 services:
   apache-wp:
-    image: apache-wp2
-    container_name: apache-wp2
+    image: apache-wp
+    container_name: apache-wp
     depends_on:
       - mysql
     ports:
-      - 80:80
+      - 8080:80
 
-  mysql2:
+  mysql:
     image: mysql:5.7
-    container_name: mysql2
+    platform: linux/amd64
+    container_name: mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
