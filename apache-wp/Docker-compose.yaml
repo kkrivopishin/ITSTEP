@@ -1,11 +1,7 @@
 services:
   apache-wp:
-<<<<<<< HEAD
     image: apache-wp
     platform: linux/amd64
-=======
-    image: apache-wp:1.0.0
->>>>>>> 45a06ad4bd32ad0c2b8616faf3c237db5f8baf06
     container_name: apache-wp
     depends_on:
       - mysql
