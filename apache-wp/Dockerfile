@@ -19,9 +19,7 @@ RUN chmod +x /usr/local/bin/wp
 RUN cp -R /var/www/wordpress/* /var/www/html/
 
 RUN echo "<? phpinfo(); ?>" > /var/www/html/phpinfo.php
-# RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
-# PHP Extensions - docker-php-ext-install
 RUN docker-php-ext-install mysqli
 
 EXPOSE 80
