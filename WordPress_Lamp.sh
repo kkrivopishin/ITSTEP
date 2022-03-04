@@ -73,5 +73,5 @@ sudo cp wordpresssite /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/wordpresssite /etc/nginx/sites-enabled/
 sudo service nginx start
 
-sleep 10
-xdg-open http://wordpresssite.net 2>/dev/null
+# sleep 10
+# xdg-open http://wordpresssite.net 2>/dev/null
