@@ -22,7 +22,7 @@ echo $wp_string | sudo tee -a /etc/hosts
 
 #Installation Mariadb
 sudo apt-get install mariadb-server mariadb-client -y
-echo -e "\n\nn\n\nn\n\n\n" | sudo mysql_secure_installation 2>/dev/null
+# echo -e "\n\nn\n\nn\n\n\n" | sudo mysql_secure_installation 2>/dev/null
 
 #Configuration Mariadb
 sudo mysql -e "CREATE DATABASE wordpressdb;"
