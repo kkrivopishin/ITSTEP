@@ -1,17 +1,17 @@
 services:
-  apache-wp:
-    image: apache-wp
+  nginx-wp:
+    image: nginx-wp
     platform: linux/amd64
-    container_name: apache-wp
+    container_name: nginx-wp
     depends_on:
       - mysql
     ports:
-      - 8081:80
+      - 8080:80
 
   mysql:
     image: mysql:5.7
     platform: linux/amd64
-    container_name: mysql-apache
+    container_name: mysql-nginx
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
